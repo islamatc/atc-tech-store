@@ -1,0 +1,6 @@
+resources:
+  - namespace/namespace.yaml
+  - frontend/frontend.yaml
+  - product-service/product-service.yaml
+  - cart-service/cart-service.yaml
+  - order-service/order-service.yaml
