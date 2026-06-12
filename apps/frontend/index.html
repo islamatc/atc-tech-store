@@ -6,23 +6,37 @@
 <body>
 
 <h1>Welcome to ATC Tech Store</h1>
+<p>EKS Microservices E-commerce Lab</p>
 
 <h2>Products</h2>
+<div id="products">Loading products...</div>
 
-<div>
-    <h3>Gaming Laptop</h3>
-    <p>$1499</p>
-</div>
+<h2>Cart</h2>
+<div id="cart">Loading cart...</div>
 
-<div>
-    <h3>Mechanical Keyboard</h3>
-    <p>$129</p>
-</div>
+<h2>Orders</h2>
+<div id="orders">Loading orders...</div>
 
-<div>
-    <h3>4K Monitor</h3>
-    <p>$399</p>
-</div>
+<script>
+async function loadData() {
+    const products = await fetch('/api/products').then(res => res.json());
+    document.getElementById('products').innerHTML = products.map(p =>
+        `<div><strong>${p.name}</strong> - $${p.price}</div>`
+    ).join('');
+
+    const cart = await fetch('/api/cart').then(res => res.json());
+    document.getElementById('cart').innerHTML = cart.cart.map(item =>
+        `<div>${item.product} - Quantity: ${item.quantity}</div>`
+    ).join('');
+
+    const orders = await fetch('/api/orders').then(res => res.json());
+    document.getElementById('orders').innerHTML = orders.orders.map(o =>
+        `<div>Order #${o.order_id} - ${o.status} - $${o.total}</div>`
+    ).join('');
+}
+
+loadData();
+</script>
 
 </body>
 </html>
