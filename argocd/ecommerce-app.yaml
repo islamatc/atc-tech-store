@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:islamatc/atc-tech-store.git
+    repoURL: https://github.com/islamatc/atc-tech-store.git
     targetRevision: main
     path: k8s
   destination:
