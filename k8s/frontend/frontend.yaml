@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 488627018883.dkr.ecr.us-east-2.amazonaws.com/atc-tech-store-frontend:v1
+          image: 488627018883.dkr.ecr.us-east-2.amazonaws.com/atc-tech-store-frontend:v2
           ports:
             - containerPort: 80
 ---
